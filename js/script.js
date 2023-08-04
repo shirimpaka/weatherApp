@@ -1,11 +1,9 @@
     
-    const apiKey = 'd3038b3303b62168dd448fbeb4531d41';
-
-    async function getWeatherData(location) {
-      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=' + location + '&units='+ unit + '&appid=d3038b3303b62168dd448fbeb4531d41', {mode: 'cors'}`;
-
+  async function getWeatherData(location) {
+    const apiKey = "79d5db80a6eb86c277c56aaf926b4671";
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${apiKey}`;
       try {
-        const response = await fetch(apiUrl);
+        const response = await fetch(url);
         const data = await response.json();
 
         if (response.ok) {
@@ -45,7 +43,8 @@
 
       const content = `
         <h2>Weather Information</h2>
-        <p>City: ${weatherInfo.city}, Country: ${weatherInfo.country}</p>
+        <p>City: ${weatherInfo.city}</p>
+        <p>Country: ${weatherInfo.country}</p>
         <p>Temperature: ${weatherInfo.temperature} °C</p>
         <p>Description: ${weatherInfo.description}</p>
         <p>Humidity: ${weatherInfo.humidity}%</p>
